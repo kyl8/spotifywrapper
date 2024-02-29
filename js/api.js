@@ -1,6 +1,6 @@
 const axios = require('axios');
-const CLIENT_ID = '3bd2ab29930c47f9b075f751522b6dd9';
-const CLIENT_SECRET = '050c71323cc2460dbad988d3597ab559';
+const CLIENT_ID = 'YOUR CLIENT ID';
+const CLIENT_SECRET = 'YOUR CLIENT SECRET';
 const basicAuth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
 const URL = 'https://api.spotify.com/v1';
 
