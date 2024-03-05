@@ -1,4 +1,4 @@
-//requirejs(['/js/api/api.js'], () => {console.log('api.js loaded')}); 
+requirejs(['/js/api/api.js'], () => {console.log('api.js loaded')}); 
 
 let access_token;
 
