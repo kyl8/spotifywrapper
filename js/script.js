@@ -1,13 +1,14 @@
-const api = require('./api.js');
+//requirejs(['/js/api/api.js'], () => {console.log('api.js loaded')}); 
 
 let access_token;
-let trackNames = [];
-let artistNames = [];
-let imgURLs = [];
-let previewURLs = [];
 
 // populating arrays
 async function getTrack(name) {
+    let trackNames = [];
+    let artistNames = [];
+    let imgURLs = [];
+    let previewURLs = [];
+
     try {
         access_token = await api.getAcessToken();
         const trackName = await api.searchAll(name, access_token);
@@ -20,6 +21,7 @@ async function getTrack(name) {
     } catch (error) {
         console.log(`error: ${error}`);
     }
+    return { trackNames, artistNames, imgURLs, previewURLs };
 }
 
 function clearSearch() {
@@ -48,8 +50,29 @@ function clearSearch() {
     
 }
 
+/* if something is entered in the search bar, create a list to display tracks and waits 
+for click event to play the song (list limit 6) */
 function searchBar() {
+    let query;
+    const searchInput = document.getElementById('searchInput');
 
+    //search event
+    searchInput.addEventListener('input', () => {
+        if (searchInput.value.trim() !== '') {
+            query = searchInput.value;
+            getTrack(query).then((results) => {
+                console.log(results);
+            }); 
+        } else {
+            console.log("nothing typed");
+        }
+    });
+
+    //click event
+    searchInput.addEventListener('click', () => {
+        query = searchInput.value;
+        console.log(query);
+    });
 }
 
 /* getTrack('Summertime Sadness').then(() =>
