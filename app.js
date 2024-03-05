@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: '/js/lib/',
     paths: {
-        //'app': '../api',
+        'app': '../api',
         'fontawesome': './icons/fontawesome.min',
         'axios': './axios.min',
         'domReady': './domReady'
