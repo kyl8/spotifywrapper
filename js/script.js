@@ -24,6 +24,7 @@ async function getTrack(name) {
     return { trackNames, artistNames, imgURLs, previewURLs };
 }
 
+// the "x" button when something is typed on searchbar, html has a inbuilt function (type="search") to that, but it is ugly :p
 function clearSearch() {
     const searchInput = document.getElementById('searchInput');
     const clearButton = document.getElementById('clearButton');
