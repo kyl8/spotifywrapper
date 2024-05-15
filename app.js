@@ -1,7 +1,11 @@
 requirejs.config({
     baseUrl: '/js/lib/',
     paths: {
+<<<<<<< HEAD
         'api': '../api/api',
+=======
+        'app': '../api',
+>>>>>>> 43306105446ffcf633c0aa8224bdd58021a5be82
         'fontawesome': './icons/fontawesome.min',
         'axios': './axios.min',
         'domReady': './domReady'
@@ -22,3 +26,11 @@ require(['fontawesome'], function () {
   })
 
 
+<<<<<<< HEAD
+=======
+require (['domReady'], function () {
+    console.log('domReady loaded');
+    clearSearch();
+    searchBar();
+});
+>>>>>>> 43306105446ffcf633c0aa8224bdd58021a5be82
