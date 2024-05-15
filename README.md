@@ -1,1 +1,1 @@
-simple spotify wrapper written with javascript, axios and boostrap.
+simple spotify wrapper written with javascript, requirejs and bootstrap
