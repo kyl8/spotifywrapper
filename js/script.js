@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-requirejs(['/js/api/api.js'], () => {console.log('api.js loaded')}); 
-
->>>>>>> 43306105446ffcf633c0aa8224bdd58021a5be82
 let access_token;
 
 // populating arrays
