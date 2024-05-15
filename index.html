@@ -9,30 +9,27 @@
     <title>Spotify Wrapper</title>
 </head>
 <body>
-    <div class="container">
-        <p id="musicTitle" >Nina  - Te Ouvir</p>
-        <div class="divCover">
-            <img id=#cover class="rounded shadow p-2 mb-5 bg-body-tertiary" src="https://cdns-images.dzcdn.net/images/cover/a7c78c7243a64d168fdf1c3d192d3b0a/500x500.jpg">
-        </div>
-            <div class="input-group row height d-flex justify-content-center align-items-center">
-              <div class="col-md-6">
-                <form id="searchForm">
-                <i class="fa fa-search"></i>
-                <div class="form">
-                  <input id="searchInput" type="text" class="form-control form-input" placeholder="O que você quer ouvir?"/>
-                  <span class="left-pan input-group-append">
-                    <button id="clearButton" class="btn d-flex" type="button">
-                      <i class="fa fa-times"></i>
-                    </button>
-                  </span>
-                </form>
-                </span>
-              </div>
-            </div>  
+
+<div class="banner">
+  <p id="musicTitle">Nina - Te Ouvir</p>
+      <div class="divCover">
+          <img id="cover" class="rounded shadow p-2 mb-5 bg-body-tertiary" src="https://cdns-images.dzcdn.net/images/cover/a7c78c7243a64d168fdf1c3d192d3b0a/500x500.jpg">
+      </div>
+</div>
+        
+<div class="container">
+  <div class="form">
+    
          
+    <input id="searchInput" type="text" class="form-control form-input" placeholder="O que você quer ouvir?" >
+    <div id="icons">
+      <span><i class="fa fa-search input-icon-search"></i></span>
+      <button id="clearButton" class="btn" type="button"><i class="input-icon-times fa fa-times"></i><span class="left-border"></span></button>
     </div>
-    </div>
+    
+  </div>
+</div>   
 
     <script data-main="app" src="js/lib/require.js"></script>
-  </body>
+</body>
 </html>

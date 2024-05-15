@@ -1,17 +1,15 @@
-//requirejs(['/js/api/api.js'], () => {console.log('api.js loaded')}); 
-
 let access_token;
 
 // populating arrays
-async function getTrack(name) {
+require(['api'], async function getTrack(name) {
     let trackNames = [];
     let artistNames = [];
     let imgURLs = [];
     let previewURLs = [];
 
     try {
-        access_token = await api.getAcessToken();
-        const trackName = await api.searchAll(name, access_token);
+        access_token = await getAccessToken();
+        const trackName = await searchAll(name, access_token);
         trackName.forEach(obj => {
             trackNames.push(obj.name);
             artistNames.push(obj.artists[0].name);
@@ -21,11 +19,10 @@ async function getTrack(name) {
     } catch (error) {
         console.log(`error: ${error}`);
     }
-    return { trackNames, artistNames, imgURLs, previewURLs };
-}
+    return { trackNames, artistNames, imgURLs, previewURLs }; 
+}); 
 
-// the "x" button when something is typed on searchbar, html has a inbuilt function (type="search") to that, but it is ugly :p
-function clearSearch() {
+require(['domReady'], function clearSearch() {
     const searchInput = document.getElementById('searchInput');
     const clearButton = document.getElementById('clearButton');
 
@@ -49,7 +46,7 @@ function clearSearch() {
         console.log("searchbar empty");
     });
     
-}
+});
 
 /* if something is entered in the search bar, create a list to display tracks and waits 
 for click event to play the song (list limit 6) */
@@ -58,7 +55,7 @@ function searchBar() {
     const searchInput = document.getElementById('searchInput');
 
     //search event
-    searchInput.addEventListener('input', () => {
+    /*searchInput.addEventListener('input', () => {
         if (searchInput.value.trim() !== '') {
             query = searchInput.value;
             getTrack(query).then((results) => {
@@ -67,7 +64,7 @@ function searchBar() {
         } else {
             console.log("nothing typed");
         }
-    });
+    });*/ 
 
     //click event
     searchInput.addEventListener('click', () => {
@@ -76,12 +73,4 @@ function searchBar() {
     });
 }
 
-/* getTrack('Summertime Sadness').then(() =>
-{
-    console.log(trackNames);
-    console.log(artistNames);
-    console.log(imgURLs);
-    console.log(previewURLs);
-
-});
-*/
+getTrack('hello');

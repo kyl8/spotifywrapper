@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: '/js/lib/',
     paths: {
-        //'app': '../api',
+        'api': '../api/api',
         'fontawesome': './icons/fontawesome.min',
         'axios': './axios.min',
         'domReady': './domReady'
@@ -13,18 +13,12 @@ requirejs.config({
     },
 });
 
-requirejs(['/js/script.js'], () => {});
+require(['/js/script.js'], () => {
+    console.log("main script loaded");
+});
 
 require(['fontawesome'], function () {
     console.log('font awesome loaded');
   })
 
-require(['axios'], function () {
-    console.log('axios loaded');
-});
 
-require (['domReady'], function () {
-    console.log('domReady loaded');
-    clearSearch();
-    searchBar();
-});
